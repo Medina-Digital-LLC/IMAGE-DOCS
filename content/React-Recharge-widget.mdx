@@ -1,0 +1,82 @@
+# React Recharge Widget
+
+This folder contains a React-based widget for integrating Recharge subscription functionality into the US-B2C-Prestige Shopify theme. It provides a modern, interactive subscription purchase experience, including quantity selection, plan switching, and dynamic pricing.
+
+---
+
+## 📁 Folder Structure
+
+---
+
+## 🧩 Key Components
+
+### `buy-button.tsx`
+- Renders the "Add to Cart" button.
+- Handles out-of-stock state.
+- Calls `addToCart` and opens the Shopify cart drawer on success.
+
+### `quantity-selector.tsx`
+- Allows users to increase, decrease, or directly input the quantity.
+- Uses Zustand store for state management.
+
+### `index.tsx`
+- Main React component (`ReactRecharge`).
+- Fetches product and subscription data.
+- Handles plan selection (one-time vs. subscription).
+- Displays subscription rewards using Splide carousel.
+- Integrates with the quantity selector and buy button.
+
+---
+
+## 🛠️ Utilities
+
+### `utils/index.ts`
+- Dynamically selects the correct Recharge API token and store identifier based on the current hostname.
+- Exports `initilizeRecharge` to initialize Recharge.
+- Exports `addToCart` for adding items to the Shopify cart.
+
+### `utils/store.ts`
+- Zustand store for managing:
+  - `quantity`
+  - `productId`
+  - `sellingPlanId`
+  - `selectedPlanType`
+
+---
+
+## ⚙️ How It Works
+
+1. **Initialization:**  
+   On mount, the widget initializes Recharge and fetches product data using the Recharge Storefront Client.
+
+2. **State Management:**  
+   All widget state (quantity, plan selection, etc.) is managed via Zustand for predictable updates across components.
+
+3. **Plan Selection:**  
+   Users can toggle between one-time and subscription purchase options. Subscription plans and rewards are dynamically loaded.
+
+4. **Cart Integration:**  
+   The buy button adds the selected product/plan/quantity to the Shopify cart and triggers the cart drawer.
+
+---
+
+## 📝 Usage
+
+- Import and mount the main component (`ReactRecharge`) where you want the widget to appear.
+- Ensure the required data attributes (e.g., `data-variant`, `data-product`) are present on the container element with id `IS-Recharge`.
+
+---
+
+## 🧑‍💻 Extending
+
+- Add new components to the `components/` directory.
+- Extend the Zustand store in `utils/store.ts` for additional state needs.
+- Update `utils/index.ts` for new API integrations or logic.
+
+---
+
+## 📚 References
+
+- [Recharge Storefront Client](https://developer.rechargepayments.com/)
+- [Zustand State Management](https://docs.pmnd.rs/zustand/getting-started/introduction)
+- [Splide Carousel](https://splidejs.com/)

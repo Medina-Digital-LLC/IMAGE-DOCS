@@ -1,0 +1,78 @@
+# Styles Directory
+
+This folder contains all SCSS (Sass) styles for the US-B2C-Prestige Shopify theme. Styles are modularized by section, component, layout, and utility for maintainability and scalability.
+
+---
+
+## 📁 Structure
+
+```
+styles/
+  app.scss                # Main entry point for all styles
+  criticalLoad.scss       # Critical CSS for above-the-fold content
+  custom.scss             # Custom overrides and additions
+  voluliftCriticalLoad.scss # Critical CSS for VoluLift
+  abstract/               # Variables, mixins, and functions
+  components/             # Component-level styles
+  helpers/                # Utility classes and helpers
+  layout/                 # Layout-specific styles
+  sections/               # Section-specific styles (e.g., homepage, product)
+  snippets/               # Snippet-level styles
+  templates/              # Template-level styles
+  theme-overrides/        # Theme-specific overrides
+```
+
+---
+
+## 🛠️ SCSS Usage
+
+- All styles are written in SCSS for variables, nesting, mixins, and modularity.
+- Use partials (files starting with `_`) for reusable code and import them into main files.
+- Organize styles by feature or section for clarity and reusability.
+
+---
+
+## ⚙️ Webpack Compilation
+
+- **Webpack** is used to compile SCSS files into CSS.
+- The main entry point is `app.scss`, which imports all other partials and section files.
+- Webpack is configured via `webpack.config.js` to handle SCSS compilation, autoprefixing, and output to the appropriate assets directory.
+- Hot reloading is enabled in development for rapid feedback.
+
+### Example Webpack Rule (in `webpack.config.js`):
+```js
+{
+  test: /\.scss$/,
+  use: [
+    'style-loader',
+    'css-loader',
+    'postcss-loader',
+    'sass-loader'
+  ]
+}
+```
+
+---
+
+## 📝 How to Add Styles
+
+1. Create or update a partial in the appropriate subfolder (e.g., `sections/_homepage.scss`).
+2. Import your partial into `app.scss` or the relevant entry file:
+   ```scss
+   @import 'sections/homepage';
+   ```
+3. Run the development build:
+   ```bash
+   npm run dev
+   ```
+   or build for production:
+   ```bash
+   npm run build
+   ```
+
+---
+
+## 📚 References
+- [Sass Documentation](https://sass-lang.com/documentation)
+- [Webpack Documentation](https://webpack.js.org/)
+- [Shopify Theme CSS Best Practices](https://shopify.dev/docs/themes/architecture/css)

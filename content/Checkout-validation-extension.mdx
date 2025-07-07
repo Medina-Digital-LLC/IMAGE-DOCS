@@ -1,0 +1,58 @@
+# Checkout Validation Shopify Extension
+
+This Shopify Checkout UI extension enforces custom validation logic during the checkout process. It is designed to help merchants ensure that only valid orders can proceed, based on business rules such as cart contents, customer input, or other dynamic criteria.
+
+## Features
+
+- Block or allow checkout progression based on custom validation logic
+- Display user-friendly error messages when validation fails
+- Integrates with Shopify's `useBuyerJourneyIntercept` API
+- Fully modular and built with Shopify's Checkout UI Extensions React primitives
+- Easy to customize for any validation scenario
+
+## How It Works
+
+- The extension uses `useBuyerJourneyIntercept` to monitor and control the buyer's progress through checkout
+- When a validation rule fails, checkout is blocked and a custom error message is shown
+- Validation can be based on cart contents, attributes, or any other available checkout data
+- All logic is handled with React hooks and Shopify's Checkout UI Extensions API
+
+## Usage
+
+1. **Install dependencies:**
+   ```
+   npm install
+   ```
+2. **Build the extension:**
+   ```
+   npm run build
+   ```
+3. **Start the Shopify app/dev server:**
+   ```
+   shopify app dev
+   ```
+
+## File Structure
+
+- `src/Checkout.tsx` — Main extension entry point and validation logic
+- `src/utils/` — Utility functions for custom validation (if any)
+
+## Key APIs Used
+
+- `useBuyerJourneyIntercept` from `@shopify/ui-extensions-react/checkout`
+- Other Shopify Checkout UI Extensions React hooks as needed
+
+## Customization
+
+- **Validation Rules:** Edit the logic in `src/Checkout.tsx` to implement your own validation rules (e.g., require certain products, check for minimum order value, etc.)
+- **Error Messages:** Customize the error messages shown to buyers when validation fails
+
+## Notes
+
+- This extension is designed for Shopify's sandboxed checkout environment
+- All UI is built with Shopify's Checkout UI Extensions React primitives
+- You can combine this extension with others for more advanced checkout flows
+
+## License
+
+MIT

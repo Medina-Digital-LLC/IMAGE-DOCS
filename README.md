@@ -1,22 +1,40 @@
-# Nextra Docs Template 
+# Nextra Docs Starter 
 
-This is a template for creating documentation with [Nextra](https://nextra.site).
+![Vercel Deploy](https://deploy-badge.vercel.app/vercel/nextra-docs-starter)
 
-[**Live Demo →**](https://nextra-docs-template.vercel.app)
+This starter template includes the following features:
 
-[![](.github/screenshot.png)](https://nextra-docs-template.vercel.app)
+- [x] **Nextra 4**
+- [x] **Search with Pagefind**
+
+[**Live Demo →**](https://nextra-docs-starter.vercel.app)
+
+[![](.github/screenshot.png)](https://nextra-docs-starter.vercel.app)
 
 ## Quick Start
 
-Click the button to clone this repository and deploy it on Vercel:
+You can deploy this template on Vercel by clicking the button below
 
-[![](https://vercel.com/button)](https://vercel.com/new/clone?s=https%3A%2F%2Fgithub.com%2Fshuding%2Fnextra-docs-template&showOptionalTeamCreation=false)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fphucbm%2Fnextra-docs-starter)
 
 ## Local Development
 
-First, run `pnpm i` to install the dependencies.
+### Clone this repository
 
-Then, run `pnpm dev` to start the development server and visit localhost:3000.
+Using the GitHub CLI:
+```bash
+gh repo clone phucbm/nextra-docs-starter
+```
+
+### Install
+```bash
+pnpm i
+```
+
+### Run the development server
+```bash
+pnpm dev
+```
 
 ## License
 

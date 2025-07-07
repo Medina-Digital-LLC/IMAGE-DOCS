@@ -1,0 +1,62 @@
+# Affiliate Selector Shopify Checkout Extension
+
+This Shopify Checkout UI extension allows customers to select a VOL.U.LIFT™ provider (affiliate) during checkout. It provides a seamless way for customers to choose a recommending physician or indicate that they do not have one, and ensures that checkout cannot proceed until a valid selection is made.
+
+## Features
+
+- Displays a list of nearby affiliates (providers) based on the customer's shipping address
+- Allows customers to select a provider or indicate they do not have one
+- Dynamically updates checkout attributes with the selected provider code
+- Prevents checkout progression until a provider is selected (if required)
+- Adjustable search radius for affiliates
+- Responsive UI with loading states and skeletons
+- Displays provider details (address, phone, website)
+
+## How It Works
+
+- The extension fetches affiliate data based on the customer's shipping address and region
+- Customers can search for providers within a selectable radius
+- Provider selection is required for certain SKUs (set in block settings)
+- The extension uses Shopify's `useBuyerJourneyIntercept` to block checkout if no provider is selected
+- All state and UI logic is handled with React hooks and Shopify's Checkout UI Extensions API
+
+## Usage
+
+1. **Install dependencies:**
+   ```
+   npm install
+   ```
+2. **Build the extension:**
+   ```
+   npm run build
+   ```
+3. **Start the Shopify app/dev server:**
+   ```
+   shopify app dev
+   ```
+
+## File Structure
+
+- `src/Checkout.tsx` — Main extension entry point and UI logic
+- `src/utils/` — Utility functions for fetching affiliate data
+
+## Key APIs Used
+
+- `useApi`, `useApplyAttributeChange`, `useInstructions`, `useCartLines`, `useShippingAddress`, `useBuyerJourneyIntercept`, `useSettings` from `@shopify/ui-extensions-react/checkout`
+- React hooks for state and effect management
+
+## Customization
+
+- **SKUs:** Set the SKUs that require provider selection in the block settings
+- **Radius:** Customers can select the search radius for nearby providers
+- **Affiliate Data:** Update the utility functions in `src/utils/` to change how affiliate data is fetched
+
+## Notes
+
+- The extension is designed for Shopify's sandboxed checkout environment
+- All UI is built with Shopify's Checkout UI Extensions React primitives
+- Checkout is blocked until a provider is selected or the customer indicates they do not have one
+
+## License
+
+MIT

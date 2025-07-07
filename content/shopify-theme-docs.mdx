@@ -1,0 +1,88 @@
+
+# Shopify Theme Repositories – IMAGE Skincare
+
+This documentation outlines the structure, tooling, and workflow used across our Shopify theme repositories. These themes are based on the **Prestige** theme, which was originally purchased and customized for IMAGE Skincare's D2C and B2B storefronts.
+
+## Repositories
+
+We maintain four separate repositories for our Shopify storefronts:
+
+- `US-D2C-Prestige`
+- `US-B2B-Prestige`
+- `UK-D2C-Prestige`
+- `UK-B2B-Prestige`
+
+Each repository shares the same foundational setup and development workflow.
+
+---
+
+## Tech Stack Overview
+
+- **Base Theme:** Prestige (heavily customized)
+- **Build Tool:** Webpack 5
+- **Runtime:** Node.js 16+ (Node 20 used at time of documentation)
+- **Local Development:** Shopify CLI
+- **Deployment:** DeployBot
+
+---
+
+## Folder Structure
+
+Each repo follows the same basic structure:
+
+```
+/src         # Source files (JS, SCSS, Liquid snippets, etc.)
+/dist        # Compiled output – structured for Shopify theme compatibility
+webpack.config.js
+shopify.theme.toml
+package.json
+```
+
+All development work is done inside the `/src` folder. Webpack is responsible for compiling and moving the output to the `/dist` folder, which is what gets deployed to Shopify.
+
+---
+
+## Development Workflow
+
+1. **Install Dependencies**
+   ```bash
+   npm install
+   ```
+
+2. **Start Dev Environment**
+
+   In one terminal tab, start Webpack in watch mode:
+
+   ```bash
+   npm run watch
+   ```
+
+   In another terminal tab, use Shopify CLI to run your local server:
+
+   ```bash
+   shopify theme dev --path=dist
+   ```
+
+   This setup ensures all source files are compiled and mirrored to `/dist`, which Shopify CLI uses for live previewing.
+
+---
+
+## Deployment
+
+Deployments are handled via **DeployBot**. Configuration for each theme’s deployment target is managed within DeployBot itself. All pushes to the appropriate branch will trigger deployment according to the rules defined there.
+
+> **Note:** Only use the `/dist` folder contents for deployment — this ensures Shopify receives the compiled and structured theme files.
+
+---
+
+## Recommended Node Version
+
+It is recommended to use **Node.js version 16 or later**. As of this documentation, **Node.js v20** was used during development and build testing.
+
+---
+
+## Notes
+
+- Avoid direct edits to the `/dist` folder — always work from `/src`.
+- If you run into issues with Webpack or Shopify CLI, double-check your Node version and package dependencies.
+- All theme-specific or environment-specific configurations (API keys, theme IDs, etc.) are managed outside this repo via DeployBot or the Shopify CLI config.
