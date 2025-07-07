@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "module",
-    "url": "https://github.com/phucbm/nextra-docs-starter"
+    "url": "https://github.com/Medina-Digital-LLC/IMAGE-DOCS"
   },
   "author": "EDDIEJM007",
   "license": "MIT",
   "bugs": {
     "url": ""
   },
-  "homepage": "https://github.com/EDDIEJM007/nextra-docs-starter#readme",
+  "homepage": "https://github.com/Medina-Digital-LLC/IMAGE-DOCS",
   "dependencies": {
     "next": "^15.3.4",
     "nextra": "^4.2.17",
